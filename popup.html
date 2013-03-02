@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<script src="jquery-1.8.2.min.js"></script>
+	<style type="text/css">
+		#parent {
+			background-color: rgba(0, 0, 0, 0.8); /* black + some opacity */
+			display: none;
+			position: fixed;
+			z-index: 99999;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		#child { 
+			background: #fff; /* white */
+			width: 520px;
+			margin: 10% auto;
+			padding: 5px 20px 13px 20px;
+			border: 10px solid #ddd;
+			position: relative;
+			/*--CSS3 shadow for block--*/
+			-webkit-box-shadow: 0px 0px 20px #000;
+			-moz-box-shadow: 0px 0px 20px #000;
+			box-shadow: 0px 0px 20px #000;
+			/*--CSS3 around border --*/
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			behavior: url(./PIE-1.0.0/PIE.php); /* not PIE.htc for localhost and hosting */
+		}
+		.close {
+			background-color: rgba(0, 0, 0, 0.8);
+			border: 2px solid #ccc;
+			height: 24px;
+			line-height: 24px;
+			position: absolute;
+			right: -24px;
+			cursor: pointer;
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			color: rgba(255, 255, 255, 0.9);
+			font-size: 14px;
+			text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+			top: -24px;
+			width: 24px;
+			-webkit-border-radius: 15px;
+			-moz-border-radius: 15px;
+			-ms-border-radius: 15px;
+			-o-border-radius: 15px;
+			border-radius: 15px;
+			-moz-box-shadow: 1px 1px 3px #000;
+			-webkit-box-shadow: 1px 1px 3px #000;
+			 box-shadow: 1px 1px 3px #000;
+			 behavior: url(./PIE-1.0.0/PIE.php); /* not PIE.htc for localhost and hosting */
+		}
+		.close:hover {
+			background-color: rgba(0, 122, 200, 0.8);
+		}
+	</style>
+
+</head>
+<body>
+
+<div id="parent">
+	<div id="child">
+		<h1>Pop-Up Window</h1>
+		<p>Some text</p>
+		<a class="close" title="Close">X</a>
+	</div>
+</div>
+<a href="#" id="show" title="Show">Show window</a>
+
+<script>
+	jQuery(document).ready(function() {
+		jQuery("#show").click(function(event){
+			event.preventDefault(); // does not redirect on page
+			jQuery("#parent").css({'display':'block'}).show();
+		});
+		jQuery(".close").click(function(){
+			jQuery("#parent").css({'display':'none'}).hide();
+		});
+	});
+</script>
+
+</body>
+</html>
